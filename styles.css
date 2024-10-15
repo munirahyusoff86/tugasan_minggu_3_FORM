@@ -1,0 +1,84 @@
+*, *:before, *:after {
+    box-sizing:border-box;
+}
+
+header{
+    height: 64px;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(to right,#ff9966, #ff5e62);
+}
+
+header h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+    padding-top: .8em;
+}
+
+/* FORM  */
+
+form /* div */{
+    /*  width: 850px; */
+     display: flex;
+     justify-content: center;
+ }
+ 
+ .fieldSet {
+     width: 550px;
+ }
+ 
+ .fieldSet label, .fieldSet input {
+     align-items: center;
+ }
+ 
+ .submitButton{
+     width: 350px;
+ }
+
+/* Required column to fill by user */
+.req{
+    color: red;
+}
+
+/*Margin inside the Fieldset - for label, input, select and submit button */
+label, input, select, .submitButton {
+    margin-left:80px;
+}
+
+/* Width size of input */
+.surveyForm input, .jobRole {
+    width:350px;
+}
+
+/* Radio Button: Gender Selection in one line */
+.genderOptions{
+ display: flex;
+}
+
+.genderOptions input{
+    width: 10px;
+}
+
+/* Input Size in recommend and subjectStudy   */
+.recommend input, .subjectStudy input{
+    width: 55px;
+}
+
+/* Input Size for comment/suggestion */
+.commentsSuggestions {
+    height:70px;
+}
+
+#subject, #click, #gender{
+    margin-left:15px ;
+}
+
+#inputSubject{
+    margin-left:65px ;
+    width:285px;
+}
+
+
+
+
+

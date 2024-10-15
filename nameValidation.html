@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Validation</title>
+    <style>
+        .valid { color: green; }
+        .invalid { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Name Validation</h2>
+    <form id="nameForm">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="validationMessage"></span>
+    </form>
+
+    <script>
+        const nameInput = document.getElementById('name');
+        const validationMessage = document.getElementById('validationMessage');
+
+        nameInput.addEventListener('input', function() {
+            const nameValue = nameInput.value.trim();
+
+            // Basic validation: check if the name is at least 2 characters and contains only letters
+            const isValid = /^[A-Za-z\s]{2,}$/.test(nameValue);
+
+            if (isValid) {
+                validationMessage.textContent = 'Valid name';
+                validationMessage.className = 'valid';
+            } else {
+                validationMessage.textContent = 'Invalid name. Please use at least 2 letters.';
+                validationMessage.className = 'invalid';
+            }
+        });
+    </script>
+</body>
+</html>

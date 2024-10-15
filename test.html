@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Selection</title>
+</head>
+<body>
+    <h2>Select Your Favorite Fruit</h2>
+    <form id="fruitForm">
+        <label for="fruits">Choose a fruit:</label>
+        <select id="fruits" name="fruits">
+            <option value="">--Please choose an option--</option>
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="cherry">Cherry</option>
+            <option value="date">Date</option>
+        </select>
+    </form>
+
+    <script>
+        const fruitSelect = document.getElementById('fruits');
+
+        fruitSelect.addEventListener('change', function() {
+            const selectedValue = fruitSelect.value;
+            console.log('Selected fruit:', selectedValue);
+        });
+    </script>
+</body>
+</html>

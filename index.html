@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://codepen.io/Aakash-dev/pen/NYwPjo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWSLETTER</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h2 class="tag-line">
+            {THE BEGINER CODE PROJECT}
+        </h2>
+    </header>
+
+    <form class="surveyForm" id="survey">
+        <fieldset class="fieldSet" >
+            <legend>Survey Form</legend>
+            <label for="fullName">Name <span class="req"> *</span>: </label> <br>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" pattern="[A-Za-z]+" title="Please enter letters only." required> <br><br>
+            <span id="validationMessage"></span>
+
+            <label class="genderOptions" for="gender">Gender:                 
+                <input type="radio" id="gender" name="gender" value="male">Male
+                <input type="radio" id="gender" name="gender" value="female">Female
+            </label> <br>
+            
+            <label for="phoneNumber">Phone Number <span class="req"> *</span>: </label><br>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="012-3456789" pattern="[0-9]{10}" title="Please enter numbers only." required><br><br>
+
+            <label for="email">Email <span class="req"> *</span>: </label><br>
+            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]" placeholder="e.g survey@contact.com" required><br><br>
+
+            <label for="birthday">Birthday: </label><br>
+            <input type="date" id="birthday" name="birthday" value="birthday" placeholder="dd-mm-yyyy"><br><br>
+
+            <label for="currentRole">Current Role:  </label><br>
+            <select class="jobRole" id="currentRole" name="role"><br><br>
+                <option value="" disabled selected hidden id="disabledOptionText">Select your current role:</option>
+                    <!-- When click option menu, Select your current role: will not appear inside the list -->
+                <option id="currentRole" name="role" value="manager">Manager</option>
+                <option id="currentRole" name="role" value="executive">Executive</option>
+                <option id="currentRole" name="role" value="Non-executive">Non-Executive</option>
+                <option id="currentRole" name="role" value="support">Support</option>
+                <option id="currentRole" name="role" value="others">Others</option>
+            </select><br><br>
+
+        <label class="recommend" named="recommended">Would you recommend bootCamp to your friends? <br>
+            <input type="radio" id="click" name="recommended" value="definitely">Definitely <br>
+            <input type="radio" id="click" name="recommended" value="maybe">Maybe <br>
+            <input type="radio" id="click" name="recommended" value="notSure">Not Sure <br>
+        </label><br><br>
+        
+        <label class="subjectStudy" for="subject">What's your favourite subject to study? <br>
+            <input type="checkbox" id="subject" name="frontEnd" value="frontEnd">Front-End Project <br>
+            <input type="checkbox" id="subject" name=backEnd" value="backEnd">Back-End Project <br>
+            <input type="checkbox" id="subject" name="dataVisual" value="dataVisual">Data Visualization <br>
+            <input type="checkbox" id="subject" name="openSource" value="openSource">Open Source <br>
+            <input type="checkbox" id="subject" name="dataBase" value="dataBase">Database <br>
+            <input type="checkbox" id="subject" name="uiUX" value="uiUX">UI/UX <br>
+            <input type="checkbox" id="subject" name="programLanguage" value="programLanguage">Programming Languages <br>
+            <input type="checkbox" id="subject" name="otherSubject" value="otherSubject">Others <br>    
+            <input type="text" id="inputSubject" name="inputSubject" placeholder="Enter your preference subject..."> <br><br>
+        </label><br>
+       
+        <label>Any comments or suggestions? </label><br>
+        <input type = "text" class="commentsSuggestions" id="comment"><br><br>
+    
+        <button type="submit" class="submitButton" >Submit</button>
+    </fieldset>     
+    </form>
+    
+    <script>
+
+    document.getElementById('survey').addEventListener('submit', function(event) {
+    // Prevent the form from submitting
+    event.preventDefault();
+
+    //Get form values
+    const fullName = document.getElementById('fullName').value;
+
+    const email = document.getElementById('email').value;
+
+    /* ------Radio Button: Gender------- */
+    const gender = document.querySelector("input[name=gender]:checked").value;
+
+    /* ------Calendar: Birthday------- */
+    const birthday = document.querySelector('input[type="date"]').value;
+
+    /* ------Dropdown Menu: Role------- */
+    /* const role = document.querySelector('input[name="currentRole"]').value; */
+
+
+    /* -------Radio Button: Recommend------ */
+    const recommended = document.querySelector("input[name=recommended]:checked").value;
+
+    /* ------------Checkbox: Subject------------ */
+
+    // Get checkbox values
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const subject =[];
+    
+    checkboxes.forEach (radio => {
+        if (radio.checked) {
+            subject.push(radio.value);
+        }
+    })
+
+    /* ------------Input: Comment/Suggestion------------ */
+    const comment = document.getElementById('comment').value;
+
+    // Display output to the console
+    console.log('Name:', fullName);
+    console.log('Email:', email);
+    console.log('Gender:', gender);
+    console.log('Birthday:', birthday);
+    /* console.log('Current Role:', role); */
+    console.log('Recommend:', recommended);
+
+    // Store data in the browser's local storage
+   /*  localStorage.setItem('Name:', fullName);
+    localStorage.setItem('Email:', email);
+    localStorage.setItem('Gender:', gender);
+    localStorage.setItem('Birthday:', birthday);
+    localStorage.setItem('Current Role:', role);
+    localStorage.setItem('Recommend:', recommended); */
+
+    //Log the selected checkbox values in array
+    /* console.log('subject: ', subject); */
+    /* localStorage.setItem('Subject: ', subject); */
+    
+    // Log the selected checkbox values as a list
+    console.log('Subject: ',subject);
+    subject.forEach(option => {
+        console.log('- ' + option);
+      })
+
+    console.log('Comment:', comment);
+     /* localStorage.setItem('Comment:', comment); */
+});
+
+    </script>
+</body>
+</html>
